@@ -1,0 +1,29 @@
+{
+  "name": "slack-clone",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">✨ Slack Clone with Chat & Video Calling ✨</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burakorkmez/slack-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burakorkmez/slack-clone/issues"
+  },
+  "homepage": "https://github.com/burakorkmez/slack-clone#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.5"
+  }
+}

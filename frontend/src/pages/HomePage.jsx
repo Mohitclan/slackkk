@@ -39,8 +39,43 @@ const HomePage = () => {
     }
   }, [chatClient, searchParams]);
 
-  // todo: handle this with a better component
-  if (error) return <p>Something went wrong...</p>;
+  // Better error handling
+  if (error) {
+    console.error("Stream Chat Error:", error);
+    return (
+      <div style={{ 
+        display: "flex", 
+        flexDirection: "column", 
+        alignItems: "center", 
+        justifyContent: "center", 
+        minHeight: "100vh",
+        padding: "2rem",
+        textAlign: "center"
+      }}>
+        <h2 style={{ color: "#ef4444", marginBottom: "1rem" }}>Connection Error</h2>
+        <p style={{ color: "#6b7280", marginBottom: "0.5rem" }}>
+          Unable to connect to chat service.
+        </p>
+        <p style={{ color: "#9ca3af", fontSize: "0.875rem" }}>
+          {error?.message || "Please check your connection and try again."}
+        </p>
+        <button 
+          onClick={() => window.location.reload()} 
+          style={{
+            marginTop: "1rem",
+            padding: "0.5rem 1rem",
+            backgroundColor: "#3b82f6",
+            color: "white",
+            border: "none",
+            borderRadius: "0.375rem",
+            cursor: "pointer"
+          }}
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
   if (isLoading || !chatClient) return <PageLoader />;
 
   return (
